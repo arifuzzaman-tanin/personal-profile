@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { UserProfileProvider } from "@/context/ProfileContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,13 +16,14 @@ const geistMono = localFont({
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        {/* Wrap children with UserProfileProvider */}
+        <UserProfileProvider>
+          {children}
+        </UserProfileProvider>
       </body>
     </html>
   );
