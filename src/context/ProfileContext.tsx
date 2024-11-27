@@ -43,8 +43,15 @@ export interface AchievementDetail {
 }
 
 export interface UserProfile {
+    name: string;
+    image: string;
     emailAddress: string;
     phoneNumber: string;
+    location: string;
+    linkedin: string;
+    github: string;
+    role: string;
+    about: string;
     achievementDetails: AchievementDetail[];
     skills: SkillDetail[];
     workHistory: EmploymentHistory[];
@@ -71,8 +78,15 @@ interface UserProfileProviderProps {
 
 const populateUserProfile = (userProfile: any): UserProfile => {
     const profileData: UserProfile = {
+        name: userProfile.profile.name,
+        image: userProfile.profile.image,
         emailAddress: userProfile.profile.email,
         phoneNumber: userProfile.profile.phone,
+        location: userProfile.profile.location,
+        linkedin: userProfile.profile.linkedin,
+        github: userProfile.profile.github,
+        role: userProfile.profile.role,
+        about: userProfile.profile.about,
         achievementDetails: userProfile.achievements,
         skills: userProfile.skills,
         workHistory: userProfile.workExperiences,

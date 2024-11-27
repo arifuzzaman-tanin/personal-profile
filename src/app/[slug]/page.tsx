@@ -7,7 +7,6 @@ type Params = {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
     const { slug } = await params;
-
     const metadata = await generatePageMetadata(slug);
 
     return metadata;
