@@ -99,7 +99,20 @@ const populateUserProfile = (userProfile: any): UserProfile => {
             isHidden: skill.isHidden
 
         })) : [],
-        workHistory: userProfile.workExperiences,
+        workHistory: Array.isArray(userProfile.workExperiences) ? userProfile.workExperiences.map((experience: any) => ({
+            employer: {
+                companyName: experience.company.name,
+                contactInformation: experience.company.contact.map((contact: any) => ({
+                    websiteUrl: contact.website,
+                    logoUrl: contact.logo
+                }))
+            },
+            jobTitle: experience.position,
+            employmentType: experience.jobType,
+            employmentPeriod: experience.duration,
+            jobLocation: experience.location,
+            jobResponsibilities: experience.responsibilities
+        })) : [],
         projectDetails: userProfile.projects
     };
 
