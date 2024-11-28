@@ -4,6 +4,9 @@ import React, { createContext, useState, useEffect } from 'react';
 export interface SkillDetail {
     skillName: string;
     proficiencyLevel: string;
+    shortName: string;
+    icon: string;
+    isHidden: boolean;
 }
 
 export interface CompanyContactInfo {
@@ -88,7 +91,14 @@ const populateUserProfile = (userProfile: any): UserProfile => {
         role: userProfile.profile.role,
         about: userProfile.profile.about,
         achievementDetails: userProfile.achievements,
-        skills: userProfile.skills,
+        skills: Array.isArray(userProfile.skills) ? userProfile.skills.map((skill: any) => ({
+            skillName: skill.name,
+            proficiencyLevel: skill.achieved,
+            shortName: skill.title,
+            icon: skill.icon,
+            isHidden: skill.isHidden
+
+        })) : [],
         workHistory: userProfile.workExperiences,
         projectDetails: userProfile.projects
     };

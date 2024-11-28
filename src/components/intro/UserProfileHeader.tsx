@@ -4,8 +4,8 @@ import React from 'react'
 import styles from './UserProfileIntro.module.css';
 import { useUserProfile } from "@/context/ProfileContext";
 import UserProfileHeaderPlaceholder from './UserProfileHeaderPlaceholder';
-import GitHubIcon from '@/components/icons/GitHubIcon'
-import LinkedinIcon from '@/components/icons/LinkedinIcon'
+import GitHubIcon40x40 from '@/components/icons/GitHubIcon40x40'
+import LinkedinIcon40x40 from '@/components/icons/LinkedinIcon40x40'
 
 const UserProfileHeader = () => {
 
@@ -38,14 +38,14 @@ const UserProfileHeader = () => {
                                 target="_blank"
                                 title={`Visit ${userProfile?.name}'s GitHub profile`}
                             >
-                                <GitHubIcon />
+                                <GitHubIcon40x40 />
                             </a>
                             <a
                                 href={userProfile?.linkedin}
                                 target="_blank"
                                 title={`View ${userProfile?.name}'s LinkedIn profile`}
                             >
-                                <LinkedinIcon />
+                                <LinkedinIcon40x40 />
                             </a>
                         </div>
                     </div>
