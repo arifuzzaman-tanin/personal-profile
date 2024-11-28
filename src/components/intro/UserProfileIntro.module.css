@@ -1,0 +1,61 @@
+.profileHeaderRow {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 4fr;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .profileHeaderRow {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .profileHeaderRow {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .textCenterMobileView {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .socialIconsCenterMobileView {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .socialIconsCenterMobileView a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.profileHeaderRow .profileImageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.profileHeaderRow img {
+    border-radius: 50%;
+    border: 5px solid blue;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.profileHeaderRow .placeholderImage {
+    border-radius: 50%;
+    border: 5px solid rgb(204, 204, 212);
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
