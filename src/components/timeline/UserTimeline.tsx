@@ -18,10 +18,12 @@ const UserTimeline: React.FC<EmploymentHistoryProps> = ({ employmentHistory }) =
           >
             <div className={styles.info}>
               <h4 className={styles.title}>{item.employer.companyName}</h4>
-              <p className='fw-bold text-end'>{item.jobTitle}</p>
+              <p className={`${index % 2 === 0 ? '' : 'text-end'} fw-bold mb-0 pb-0`}>{item.jobTitle}</p>
+              <p className={`${index % 2 === 0 ? '' : 'text-end'} fw-bold mb-0 pb-0`}>{item.employmentPeriod} ({item.employmentType})</p>
+              <p className={`${index % 2 === 0 ? '' : 'text-end'}`}>{item.jobLocation}</p>
               <ul>
                 {item.jobResponsibilities.map((responsibility: any, i) => {
-                  return <li key={i}>{responsibility}</li>;
+                  return <li key={i} className='lh-lg'>{responsibility}</li>;
                 })}
               </ul>
             </div>
