@@ -18,7 +18,7 @@ const UserTimeline: React.FC<EmploymentHistoryProps> = ({ employmentHistory }) =
           >
             <div className={styles.info}>
               <h4 className={styles.title}>{item.employer.companyName}</h4>
-              <h5 className={styles.title}>{item.jobTitle}</h5>
+              <p className='fw-bold text-end'>{item.jobTitle}</p>
               <ul>
                 {item.jobResponsibilities.map((responsibility: any, i) => {
                   return <li key={i}>{responsibility}</li>;

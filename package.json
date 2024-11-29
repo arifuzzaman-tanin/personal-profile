@@ -1,9 +1,12 @@
 {
+  "homepage": "https://arifuzzaman-tanin.github.io/personal-profile",
   "name": "personal-profile",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predeploy" : "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -19,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "gh-pages": "^6.2.0",
     "typescript": "^5"
   }
 }

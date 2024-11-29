@@ -1,8 +1,8 @@
 /* Timeline Container */
 .timeline {
     
-    margin: 20px auto;
-    padding: 20px;
+    margin: 0px auto;
+    padding: 3px;
   }
   
   /* Card container */
@@ -91,8 +91,8 @@
   .title::before {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background: white;
     border-radius: 999px;
     border: 3px solid orangered;
