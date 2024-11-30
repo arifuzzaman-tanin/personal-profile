@@ -39,12 +39,6 @@ export interface ProjectDetail {
     techStack: string[];
 }
 
-export interface AchievementDetail {
-    achievementTitle: string;
-    achievementDescription?: string;
-    dateOfAchievement?: string;
-}
-
 export interface UserProfile {
     name: string;
     image: string;
@@ -55,7 +49,7 @@ export interface UserProfile {
     github: string;
     role: string;
     about: string;
-    achievementDetails: AchievementDetail[];
+    achievements: string[];
     skills: SkillDetail[];
     workHistory: EmploymentHistory[];
     projectDetails?: ProjectDetail[];
@@ -90,7 +84,7 @@ const populateUserProfile = (userProfile: any): UserProfile => {
         github: userProfile.profile.github,
         role: userProfile.profile.role,
         about: userProfile.profile.about,
-        achievementDetails: userProfile.achievements,
+        achievements: userProfile.achievements,
         skills: Array.isArray(userProfile.skills) ? userProfile.skills.map((skill: any) => ({
             skillName: skill.name,
             proficiencyLevel: skill.achieved,

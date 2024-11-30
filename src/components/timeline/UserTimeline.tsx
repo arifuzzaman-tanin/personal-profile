@@ -41,8 +41,23 @@ const UserTimeline: React.FC<EmploymentHistoryProps> = ({ employmentHistory }) =
   );
 
   const timelineContentTabletDestop = (
-    <div>
-      
+    <div className="light-gray-container mt-5">
+      <p className="fw-bold fs-4">Professional Experience</p>
+      {employmentHistory?.map((item, index) => (
+        <div key={index} className={`${index === 0 ? 'mt-0' : 'mt-3'} card shadow-none p-2 bg-body-tertiary rounded`}>
+          <div className='card-body'>
+            <h5 className={styles.timelineTitle}>{item.employer.companyName}</h5>
+            <p className='fw-bold mb-0 pb-0'>{item.jobTitle}</p>
+            <p className='fw-bold mb-0 pb-0'>{item.employmentPeriod} ({item.employmentType})</p>
+            <p>{item.jobLocation}</p>
+            <ul>
+              {item.jobResponsibilities.map((responsibility: any, i) => {
+                return <li key={i} className='lh-lg'>{responsibility}</li>;
+              })}
+            </ul>
+          </div>
+        </div>
+      ))}
     </div>
   );
 
