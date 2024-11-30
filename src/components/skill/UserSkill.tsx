@@ -15,6 +15,7 @@ import HtmlIcon40x40 from '@/components/icons/HtmlIcon40x40';
 import CssIcon40x40 from '@/components/icons/CssIcon40x40';
 import CacheIcon40x40 from '@/components/icons/CacheIcon40x40';
 import MicroservicesIcon40x40 from '@/components/icons/MicroservicesIcon40x40';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 const iconMap: Record<string, React.FC> = {
     DotNetIcon: DotNetIcon40x40,
@@ -34,31 +35,38 @@ const iconMap: Record<string, React.FC> = {
 };
 
 interface SkillDetailProps {
-    skills: SkillDetail[];
+    skills: SkillDetail[] | [] | undefined;
 }
 
 const UserSkill: React.FC<SkillDetailProps> = ({ skills }) => {
-    const visibleSkills = skills.filter((skill) => !skill.isHidden);
+    const visibleSkills = skills?.filter((skill) => !skill.isHidden);
+    const { isMobile } = useMediaQuery();
 
     return (
-        <div className={styles.skillItemContainer}>
-            {visibleSkills.map((skill, index) => {
-                const IconComponent = iconMap[skill.icon] || iconMap.default;
+        <div className='light-gray-container rounded-3'>
+            <p className='fw-bold fs-4'>
+                {isMobile ? "Expert in this area" : "Advanced expertise in these technologies"}
+            </p>
+            <div className={`${styles.skillItemContainer}`}>
+                {visibleSkills?.map((skill, index) => {
+                    const IconComponent = iconMap[skill.icon] || iconMap.default;
 
-                return (
-                    <div
-                        key={index}
-                        className={styles.skillItemCard}
-                        title={skill.skillName}
-                    >
-                        <div>
-                            <IconComponent />
-                            <p>{skill.shortName}</p>
+                    return (
+                        <div
+                            key={index}
+                            className={styles.skillItemCard}
+                            title={skill.skillName}
+                        >
+                            <div>
+                                <IconComponent />
+                                <p>{skill.shortName}</p>
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
+
     );
 };
 
