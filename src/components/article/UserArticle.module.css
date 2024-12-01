@@ -1,0 +1,25 @@
+.articleCard {
+    height: 100%;
+    /* Ensure consistent height for cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardImage {
+    height: 200px;
+    /* Adjust as needed */
+    object-fit: cover;
+    width: 100%;
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cardText {
+    font-size: 0.9rem;
+    color: #666;
+}

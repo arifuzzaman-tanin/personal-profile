@@ -4,25 +4,25 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 
 const GitHubCalendar = () => {
     const { isMobile } = useMediaQuery();
-    
+
     return (
         <div className='light-gray-container rounded-3'>
             <p className="fw-bold fs-4">GitHub Profile</p>
             <div className="row text-center">
                 <div className="col-md-4">
-                    <div className="stats-card p-3 rounded">
+                    <div className={`${styles.statsCard} stats-card p-3 rounded`}>
                         <p className="fw-bold text-primary mb-1">Followers</p>
                         <p className="fs-5 text-dark mb-0">8</p>
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <div className="stats-card p-3 rounded">
+                    <div className={`${styles.statsCard} stats-card p-3 rounded`}>
                         <p className="fw-bold text-primary mb-1">Following</p>
                         <p className="fs-5 text-dark mb-0">8</p>
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <div className="stats-card p-3 rounded">
+                    <div className={`${styles.statsCard} stats-card p-3 rounded`}>
                         <p className="fw-bold text-primary mb-1">Repositories</p>
                         <p className="fs-5 text-dark mb-0">50</p>
                     </div>
