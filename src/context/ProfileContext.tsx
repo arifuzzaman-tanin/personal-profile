@@ -39,6 +39,13 @@ export interface ProjectDetail {
     techStack: string[];
 }
 
+export interface Article {
+    title: string;
+    body: string;
+    readingTime: number;
+    link: string;
+    image: string;
+}
 export interface UserProfile {
     name: string;
     image: string;
@@ -53,6 +60,7 @@ export interface UserProfile {
     skills: SkillDetail[];
     workHistory: EmploymentHistory[];
     projectDetails?: ProjectDetail[];
+    articles?: Article[];
 }
 
 interface UserProfileContextType {
@@ -107,7 +115,8 @@ const populateUserProfile = (userProfile: any): UserProfile => {
             jobLocation: experience.location,
             jobResponsibilities: experience.responsibilities
         })) : [],
-        projectDetails: userProfile.projects
+        projectDetails: userProfile.projects,
+        articles :userProfile.blogs
     };
 
     return profileData

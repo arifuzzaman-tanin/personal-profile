@@ -7,12 +7,13 @@ import { useUserProfile } from "@/context/ProfileContext";
 import UserTimeline from "./timeline/UserTimeline";
 import UserAchievements from "./achievement/UserAchievements";
 import GitHubCalendar from "./gitHub/GitHubCalendar";
+import UserArticle from "./article/UserArticle";
 
 export default function MyProfile() {
     const { userProfile, loading } = useUserProfile();
 
     if (!loading) {
-        console.log(userProfile?.achievements);
+        console.log(userProfile?.articles);
     }
 
     return (
@@ -25,9 +26,9 @@ export default function MyProfile() {
                     <div className="row">
                         <div className="col-lg-6 col-md-12 mb-5">
                             <UserAchievements achivements={userProfile?.achievements} />
-                            
+
                             <div className="mt-5">
-                            <GitHubCalendar/>
+                                <GitHubCalendar />
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-12 mb-5">
@@ -35,6 +36,9 @@ export default function MyProfile() {
                         </div>
                     </div>
                     <UserTimeline employmentHistory={userProfile?.workHistory} />
+                    <div className="mt-5">
+                        <UserArticle articles={userProfile?.articles} />
+                    </div>
                 </div>
             )}
         </main>
