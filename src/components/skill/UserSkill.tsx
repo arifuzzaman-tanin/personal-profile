@@ -15,6 +15,8 @@ import HtmlIcon40x40 from '@/components/icons/HtmlIcon40x40';
 import CssIcon40x40 from '@/components/icons/CssIcon40x40';
 import CacheIcon40x40 from '@/components/icons/CacheIcon40x40';
 import MicroservicesIcon40x40 from '@/components/icons/MicroservicesIcon40x40';
+import ElasticsearchIcon40x40 from '@/components/icons/ElasticsearchIcon40x40';
+import DesignPatternIcon40x40 from '@/components/icons/DesignPatternIcon40x40';
 import useMediaQuery from '@/hooks/useMediaQuery';
 
 const iconMap: Record<string, React.FC> = {
@@ -31,6 +33,8 @@ const iconMap: Record<string, React.FC> = {
     CssIcon: CssIcon40x40,
     CacheIcon: CacheIcon40x40,
     MicroservicesIcon: MicroservicesIcon40x40,
+    ElasticsearchIcon: ElasticsearchIcon40x40,
+    DesignPatternIcon: DesignPatternIcon40x40,
     default: NoIcon,
 };
 
@@ -59,7 +63,7 @@ const UserSkill: React.FC<SkillDetailProps> = ({ skills }) => {
                         >
                             <div>
                                 <IconComponent />
-                                <p>{skill.shortName}</p>
+                                <p>{skill.skillName}</p>
                             </div>
                         </div>
                     );

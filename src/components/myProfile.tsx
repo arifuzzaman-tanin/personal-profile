@@ -13,7 +13,7 @@ export default function MyProfile() {
     const { userProfile, loading } = useUserProfile();
 
     if (!loading) {
-        console.log(userProfile?.articles);
+        console.log(userProfile?.skills);
     }
 
     return (
