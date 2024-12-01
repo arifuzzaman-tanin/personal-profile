@@ -6,6 +6,7 @@ import UserSkill from "./skill/UserSkill";
 import { useUserProfile } from "@/context/ProfileContext";
 import UserTimeline from "./timeline/UserTimeline";
 import UserAchievements from "./achievement/UserAchievements";
+import GitHubCalendar from "./gitHub/GitHubCalendar";
 
 export default function MyProfile() {
     const { userProfile, loading } = useUserProfile();
@@ -24,6 +25,10 @@ export default function MyProfile() {
                     <div className="row">
                         <div className="col-lg-6 col-md-12 mb-5">
                             <UserAchievements achivements={userProfile?.achievements} />
+                            
+                            <div className="mt-5">
+                            <GitHubCalendar/>
+                            </div>
                         </div>
                         <div className="col-lg-6 col-md-12 mb-5">
                             <UserSkill skills={userProfile?.skills} />
