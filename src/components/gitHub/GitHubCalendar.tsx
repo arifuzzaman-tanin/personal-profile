@@ -1,7 +1,10 @@
 import React from 'react';
 import styles from './GitHubCalendar.module.css';
+import useMediaQuery from '@/hooks/useMediaQuery';
 
 const GitHubCalendar = () => {
+    const { isMobile } = useMediaQuery();
+    
     return (
         <div className='light-gray-container rounded-3'>
             <p className="fw-bold fs-4">GitHub Profile</p>
@@ -32,7 +35,9 @@ const GitHubCalendar = () => {
                     <button className='btn btn-outline-primary w-100'>View profile</button>
                 </div>
                 <div className="col-6">
-                    <button className='btn btn-outline-primary w-100'>View Repositories</button>
+                    <button className='btn btn-outline-primary w-100'>
+                        {isMobile ? 'Repositories' : 'View Repositories'}
+                    </button>
                 </div>
             </div>
 
