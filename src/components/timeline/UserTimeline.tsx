@@ -41,7 +41,7 @@ const UserTimeline: React.FC<EmploymentHistoryProps> = ({ employmentHistory }) =
   );
 
   const timelineContentTabletDestop = (
-    <div className="light-gray-container mt-5">
+    <div className="light-gray-container">
       <p className="fw-bold fs-4">Professional Experience</p>
       {employmentHistory?.map((item, index) => (
         <div key={index} className={`${index === 0 ? 'mt-0' : 'mt-3'} card shadow-none p-2 bg-body-tertiary rounded`}>
