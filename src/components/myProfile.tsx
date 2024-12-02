@@ -13,7 +13,7 @@ export default function MyProfile() {
     const { userProfile, loading } = useUserProfile();
 
     if (!loading) {
-        console.log(userProfile?.skills);
+        console.log(userProfile?.githubData);
     }
 
     return (
@@ -28,7 +28,7 @@ export default function MyProfile() {
                             <UserAchievements achivements={userProfile?.achievements} />
 
                             <div className="mt-5">
-                                <GitHubCalendar />
+                                <GitHubCalendar gitHubData={userProfile?.githubData} />
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-12 mb-5">
