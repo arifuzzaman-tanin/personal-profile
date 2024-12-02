@@ -46,6 +46,13 @@ export interface Article {
     link: string;
     image: string;
 }
+
+export interface GitHubData {
+    followers: number;
+    following: number;
+    totalPublicRepos: number;
+}
+
 export interface UserProfile {
     name: string;
     image: string;
@@ -61,6 +68,7 @@ export interface UserProfile {
     workHistory: EmploymentHistory[];
     projectDetails?: ProjectDetail[];
     articles?: Article[];
+    githubData?: GitHubData;
 }
 
 interface UserProfileContextType {
@@ -116,10 +124,21 @@ const populateUserProfile = (userProfile: any): UserProfile => {
             jobResponsibilities: experience.responsibilities
         })) : [],
         projectDetails: userProfile.projects,
-        articles :userProfile.blogs
+        articles: userProfile.blogs
     };
 
     return profileData
+}
+
+const populateUserGithubData = (githubData: any): GitHubData => {
+
+    const gitHubProfile: GitHubData = {
+        followers: githubData.followers,
+        following: githubData.following,
+        totalPublicRepos: githubData.public_repos
+    };
+
+    return gitHubProfile;
 }
 
 export const UserProfileProvider: React.FC<UserProfileProviderProps> = ({ children }) => {
@@ -133,6 +152,11 @@ export const UserProfileProvider: React.FC<UserProfileProviderProps> = ({ childr
                 const response = await fetch('https://raw.githubusercontent.com/arifuzzaman-tanin/arifuzzaman-tanin-resume/refs/heads/main/assets/database.json');
                 const data: UserProfile = await response.json();
                 const populatedProfileData = populateUserProfile(data);
+
+                const responseGitHubData = await fetch('https://api.github.com/users/arifuzzaman-tanin');
+                const gitHubData: GitHubData = await responseGitHubData.json();
+                const populatedUserGithubData = populateUserGithubData(gitHubData);
+                populatedProfileData.githubData = populatedUserGithubData;
 
                 setUserProfile(populatedProfileData);
             } catch (err) {
