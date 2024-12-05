@@ -20,7 +20,9 @@ const UserProfileHeader: React.FC<UserProfileProps> = ({ profileData }) => {
                 <div>
                     <div className={styles.textCenterMobileView}>
                         <p className='fw-bold fs-3 mb-0 pb-0'>{profileData?.name}</p>
-                        <p className='fw-bold fs-7 text-primary'>{profileData?.role}</p>
+                        <p className='fw-bold fs-7 mb-0 pb-0'>{profileData?.role}</p>
+                        <p className='fw-bold mb-0 pb-0'>{profileData?.location}</p>
+                        <p className='fw-bold'>{profileData?.emailAddress}</p>
                     </div>
                     <p className='lh-lg'>{profileData?.about}</p>
                     <div className={styles.socialIconsCenterMobileView}>
