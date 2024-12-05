@@ -6,7 +6,7 @@ const UserProfileHeaderPlaceholder = () => {
         <div className='card shadow-none p-2 mb-5 mt-1 bg-body-tertiary rounded'>
             <div className={`${styles.profileHeaderRow} card-body`}>
                 <div className={styles.profileImageWrapper}>
-                    <img className={styles.placeholderImage} src="/static/no-image.png" alt='user profile image' />
+                    <img className={styles.placeholderImage} src="https://raw.githubusercontent.com/arifuzzaman-tanin/personal-profile/refs/heads/main/public/static/no-image.png" alt='user profile image' />
                 </div>
                 <div>
                     <h5 className="card-title placeholder-glow mb-0 pb-0">
