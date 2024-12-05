@@ -1,44 +1,84 @@
 import { Metadata } from 'next';
-import { fetchData } from './fetchData'; // Import the fetchData utility
+import { fetchData } from './fetchData';
 
-export async function generatePageMetadata(slug: string): Promise<Metadata> {
+// Add default SEO metadata
+export async function generatePageMetadata(slug: string, useDefault: boolean = false): Promise<Metadata> {
+    if (useDefault) {
+        // Return default metadata if useDefault is true
+        return {
+            title: "Arifuzzaman Tanin - Software Engineer",
+            description: "Arifuzzaman Tanin, a results-driven Full Stack Developer with expertise in .NET technologies, Azure, and modern frontend frameworks.",
+            openGraph: {
+                title: "Arifuzzaman Tanin - Software Engineer",
+                description: "Discover the professional portfolio of Arifuzzaman Tanin, featuring over 9 years of experience in software development.",
+                url: `https://arifuzzaman-tanin.github.io/personal-profile`,
+                images: [
+                    {
+                        url: "https://raw.githubusercontent.com/arifuzzaman-tanin/arifuzzaman-tanin-resume/refs/heads/main/assets/images/tanin.webp",
+                        width: 800,
+                        height: 600,
+                        alt: "Arifuzzaman Tanin",
+                    },
+                ],
+            },
+            twitter: {
+                card: "summary_large_image",
+                title: "Arifuzzaman Tanin - Software Engineer",
+                description: "Explore the portfolio of Arifuzzaman Tanin, Full Stack Developer and software engineering specialist.",
+                images: [
+                    "https://raw.githubusercontent.com/arifuzzaman-tanin/arifuzzaman-tanin-resume/refs/heads/main/assets/images/tanin.webp",
+                ],
+            },
+        };
+    }
+
     const data = await fetchData<{ title: string; description?: string; image?: string }>(
         `https://jsonplaceholder.typicode.com/posts/${slug}`
     );
 
     if (!data) {
-        // If fetch fails, return default metadata
+        // Default metadata if data fetch fails
         return {
-            title: "Default Title - My Application",
-            description: "Default description for my app.",
+            title: "Arifuzzaman Tanin - Software Engineer",
+            description: "Arifuzzaman Tanin, a results-driven Full Stack Developer with expertise in .NET technologies, Azure, and modern frontend frameworks.",
             openGraph: {
-                title: "Default Title",
-                description: "Default description for my app.",
-                url: `https://www.mywebsite.com/${slug}`,
-                images: [{ url: "/static/og-image.jpg", width: 800, height: 600, alt: "Default Title" }],
+                title: "Arifuzzaman Tanin - Software Engineer",
+                description: "Discover the professional portfolio of Arifuzzaman Tanin, featuring over 9 years of experience in software development.",
+                url: `https://www.arifuzzaman-tanin.github.io/${slug}`,
+                images: [
+                    {
+                        url: "https://raw.githubusercontent.com/arifuzzaman-tanin/arifuzzaman-tanin-resume/refs/heads/main/assets/images/tanin.webp",
+                        width: 800,
+                        height: 600,
+                        alt: "Arifuzzaman Tanin",
+                    },
+                ],
             },
             twitter: {
                 card: "summary_large_image",
-                title: "Default Title",
-                description: "Default description for my app.",
-                images: ["/static/og-image.jpg"],
+                title: "Arifuzzaman Tanin - Software Engineer",
+                description: "Explore the portfolio of Arifuzzaman Tanin, Full Stack Developer and software engineering specialist.",
+                images: [
+                    "https://raw.githubusercontent.com/arifuzzaman-tanin/arifuzzaman-tanin-resume/refs/heads/main/assets/images/tanin.webp",
+                ],
             },
         };
     }
 
-    // Otherwise, return metadata based on the fetched data
-    const title = data.title ?? "Default Title";
+    // Metadata based on fetched data
+    const title = data.title ?? "Arifuzzaman Tanin - Software Engineer";
+    const description = data.description || "Explore the professional journey of Arifuzzaman Tanin.";
 
     return {
         title: `${title} - My Application`,
-        description: data.description || "Default description for my app.",
+        description,
         openGraph: {
             title,
-            description: data.description,
-            url: `https://www.mywebsite.com/${slug}`,
+            description,
+            url: `https://www.arifuzzaman-tanin.github.io/${slug}`,
             images: [
                 {
-                    url: data.image || "/static/og-image.jpg",
+                    url: data.image || "https://raw.githubusercontent.com/arifuzzaman-tanin/arifuzzaman-tanin-resume/refs/heads/main/assets/images/tanin.webp",
                     width: 800,
                     height: 600,
                     alt: title,
@@ -48,8 +88,10 @@ export async function generatePageMetadata(slug: string): Promise<Metadata> {
         twitter: {
             card: "summary_large_image",
             title,
-            description: data.description,
-            images: [data.image || "/static/og-image.jpg"],
+            description,
+            images: [
+                data.image || "https://raw.githubusercontent.com/arifuzzaman-tanin/arifuzzaman-tanin-resume/refs/heads/main/assets/images/tanin.webp",
+            ],
         },
     };
 }
