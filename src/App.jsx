@@ -118,7 +118,7 @@ export default function MobileFirstResumeWebsite() {
     },
   ];
 
-  const navItems = ["About", "Skills", "Experience", "GitHub", "Education", "Contact"];
+  const navItems = ["About", "Skills", "Experience", "GitHub", "Education"];
   const githubUsername = "arifuzzaman-tanin";
   const githubRepoName = "personal-profile";
   const githubGraphUrl = `https://ghchart.rshah.org/${githubUsername}`;
