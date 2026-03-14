@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# personal-profile
 
-## Getting Started
+Mobile-first portfolio and resume website for **Md Arifuzzaman Tanin**.
 
-First, run the development server:
+Live URL:
+
+```text
+https://arifuzzaman-tanin.github.io/personal-profile/
+```
+
+## Tech stack
+
+- React 18
+- Vite 5
+- Tailwind CSS 4
+- GitHub Actions for deployment
+- GitHub Pages for hosting
+
+## Run locally
+
+### 1) Clone the repository
+
+```bash
+git clone https://github.com/arifuzzaman-tanin/personal-profile.git
+cd personal-profile
+```
+
+### 2) Install dependencies
+
+```bash
+npm install
+```
+
+### 3) Start the local development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open the local URL shown in the terminal, usually:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:5173/
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build locally
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Preview the production build locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run preview
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Important update before deploy
 
-## Deploy on Vercel
+Open `src/App.jsx` and replace the placeholder Google Drive URL:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```js
+const resumePdfUrl = "https://drive.google.com/file/d/YOUR_FILE_ID/view";
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+with your real resume share link.
+
+## Deploy with GitHub Actions
+
+### 1) Create the GitHub repository
+
+Repository name must be:
+
+```text
+personal-profile
+```
+
+### 2) Push the code
+
+```bash
+git init
+git branch -M main
+git add .
+git commit -m "Initial portfolio site"
+git remote add origin https://github.com/arifuzzaman-tanin/personal-profile.git
+git push -u origin main
+```
+
+### 3) Configure GitHub Pages
+
+Open GitHub repository settings:
+
+```text
+Settings -> Pages
+```
+
+Under **Build and deployment**:
+
+- Source: **GitHub Actions**
+
+No other Pages branch setup is needed because deployment is handled by:
+
+```text
+.github/workflows/deploy.yml
+```
+
+### 4) Wait for the workflow to finish
+
+Open:
+
+```text
+Actions
+```
+
+You should see the workflow named:
+
+```text
+Deploy React Vite site to GitHub Pages
+```
+
+Once successful, the site will be available at:
+
+```text
+https://arifuzzaman-tanin.github.io/personal-profile/
+```
+
+## Notes
+
+- The Vite base path is already configured for `/personal-profile/`
+- The project is ready for GitHub Pages
+- You only need to update the Google Drive resume link before deploying
