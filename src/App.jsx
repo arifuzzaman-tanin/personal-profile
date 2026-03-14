@@ -320,38 +320,6 @@ export default function MobileFirstResumeWebsite() {
             <p className="mt-1 text-sm text-slate-400">2013 - 2016</p>
           </div>
         </section>
-
-        <footer className="mt-6 mb-8 rounded-3xl border border-white/10 bg-slate-900 p-5 shadow-2xl sm:p-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-lg font-semibold">Md Arifuzzaman Tanin</p>
-              <p className="mt-1 text-sm text-slate-400">Built for GitHub Pages deployment • Mobile-first • React + Tailwind</p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={openEmail}
-                className="cursor-pointer rounded-2xl border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-cyan-300"
-              >
-                Email
-              </button>
-              <button
-                type="button"
-                onClick={() => openExternalLink("https://linkedin.com/in/tanin-arifuzzaman")}
-                className="cursor-pointer rounded-2xl border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-cyan-300"
-              >
-                LinkedIn
-              </button>
-              <button
-                type="button"
-                onClick={() => openExternalLink(`https://github.com/${githubUsername}`)}
-                className="cursor-pointer rounded-2xl border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-cyan-300"
-              >
-                GitHub
-              </button>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   );
