@@ -1,0 +1,39 @@
+.hero-section {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    animation: fadeIn 1s;
+}
+
+.section-title {
+    text-decoration: underline;
+    font-size: 24px;
+    color: #333;
+    margin-top: 15px;
+}
+
+.button {
+    background: linear-gradient(90deg, #6c63ff, #3f3d56);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 10px;
+    }
+    .section-title {
+        font-size: 20px;
+    }
+    .button {
+        padding: 8px 16px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
