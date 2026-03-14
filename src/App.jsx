@@ -150,13 +150,13 @@ export default function MobileFirstResumeWebsite() {
         <main className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <section className="rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-5 shadow-2xl sm:p-8">
             <div className="inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-300">
-              Full-Stack Software Engineer • AI Integration
+              Full-Stack Developer • AI Integration
             </div>
             <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-5xl">
               Building practical software with <span className="text-cyan-300">.NET, React, Python</span>, and modern AI workflows.
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
-              Full-Stack Software Engineer with 9+ years of experience delivering scalable applications across real estate, fintech, health, e-commerce, and education. Focused on APIs, cloud systems, microservices, and AI-powered product features.
+              Full-Stack Developer with 9+ years of experience delivering scalable applications across real estate, fintech, health, e-commerce, and education. Focused on APIs, cloud systems, microservices, and AI-powered product features.
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -299,13 +299,6 @@ export default function MobileFirstResumeWebsite() {
                 className="cursor-pointer rounded-2xl border border-white/10 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-cyan-300"
               >
                 View GitHub Profile
-              </button>
-              <button
-                type="button"
-                onClick={() => openExternalLink(githubPagesUrl)}
-                className="cursor-pointer rounded-2xl border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-300 transition hover:border-cyan-400 hover:bg-cyan-400/15"
-              >
-                Open Live Site
               </button>
             </div>
           </div>
